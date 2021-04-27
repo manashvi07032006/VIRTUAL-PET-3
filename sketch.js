@@ -7,7 +7,7 @@ var bedroomIMG, gardenIMG, washroomIMG;
 var readState, time;
 
 function preload(){
-	dogIMG = loadImage("Images/Dog.png");
+  dogIMG = loadImage("Images/Dog.png");
   happyDogIMG = loadImage("Images/Happy.png");
   milkIMG = loadImage("Images/Milk.png");
   bedroomIMG = loadImage("Images/Bed Room.png");
@@ -17,7 +17,7 @@ function preload(){
 
 function setup(){
   database = firebase.database();
-	createCanvas(500, 600);
+  createCanvas(500, 600);
   
   foodObj = new Food();
   foodStock = database.ref('Food');
@@ -57,8 +57,7 @@ function draw(){
   time = hour();
   if(time ===(lastFed+1)){
     update("Playing");
-    foodObj.garden();
-    
+    foodObj.garden();  
   }
   else if(time ===(lastFed+2) || (time>(lastFed+8) && time<(lastFed + 12)) ){
     update("Sleeping");
@@ -72,7 +71,7 @@ function draw(){
     update("Hungry");
     foodObj.display();
   }
-console.log("time = " + time);
+	
   if(gameState!="Hungry"){
     feedPet.hide();
     addFood.hide();
